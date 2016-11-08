@@ -1,10 +1,9 @@
-const React = require('react');
-const ReactDOM = require('react-dom');
+import React from 'react'
+import {render} from 'react-dom'
+import Todos from './Components/Todos'
+import './style.scss'
 
-require("./style.scss");
-let todoList = require("./todoList.jsx");
-
-ReactDOM.render(
-   <todoList color="hotpink" />,
+render(
+  <Todos />,
   document.getElementById('app')
-);
+)

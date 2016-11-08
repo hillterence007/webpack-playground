@@ -1,6 +1,28 @@
-$color-background: black;
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
 
 body {
-    background: $color-background;
+    background: black;
     color: white;
+    font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+    font-weight: 200;
 }
+
+ol {
+  background: rgba(255,255,255,.1);
+  border-top: 1px solid rgba(255,255,255,.3);
+  padding: 20px;
+
+  &.selected {
+    background: rgba(255,255,255,.2);
+    outline: none;
+  }
+
+  &:first-of-type {
+    border-top: 0;
+  }
+}
+
