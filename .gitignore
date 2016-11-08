@@ -1,0 +1,35 @@
+# OS files
+._*
+.DS_Store
+Thumbs.db
+.directory
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Always-ignore extensions
+*~
+*.diff
+*.err
+*.log
+*.orig
+*.pyc
+*.rej
+*.sass-cache
+*.sw?
+*.vi
+*.cache
+
+# SublimeText project files
+*.sublime-*
+
+# IDE files
+.idea
+.project
+
+# Folders
+node_modules
+bower_components
+.tmp
+dist
