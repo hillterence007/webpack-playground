@@ -1,29 +1,21 @@
-const webpackConfig = {
-  entry: './app/entry.js',
-  output: {
-    path: __dirname + '/dist',
-    filename: 'bundle.js'
-  },
-  debug: true,
-  devtool: 'source-map',
-  devServer: {
-    contentBase: __dirname + '/app'
-  },
-  resolve: {
-    extensions: ['', '.js', '.jsx']
-  },
-  module: {
-    loaders: [
-      {
-        test: /\.scss$/,
-        loader: 'style!css!sass'
-      }, {
-        test: /\.jsx*$/,
-        exclude: /node_modules/,
-        loader: 'babel'
-      }
-    ]
-  }
+
+const validate = require('webpack-validator')
+const merge = require('webpack-merge')
+const configDEV = require('./config/webpack-dev.js')
+const configPROD = require('./config/webpack-prod.js')
+const path = require('path')
+const PATHS = {
+  app: path.join(__dirname, 'app'),
+  build: path.join(__dirname, 'build')
 }
 
-module.exports = webpackConfig
+let config
+switch (process.env.npm_lifecycle_event) {
+  case 'build':
+    config = merge(configPROD.load(PATHS), {})
+    break
+  default:
+    config = merge(configDEV.load(PATHS), {})
+}
+
+module.exports = validate(config)
